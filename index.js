@@ -10,6 +10,7 @@ const {
 } = require("./api/middleware/error.midleware");
 const { contractRouter } = require("./api/contracts/contracts.router");
 const { serviceRouter } = require("./api/services/services.router");
+const { fileRouter } = require("./api/file/file.router");
 
 const PORT = process.env.PORT || 3001;
 const app = express();
@@ -25,6 +26,7 @@ app.get("/", (req, res) => {
 app.use("/client", clientRouter);
 app.use("/contract", contractRouter);
 app.use("/service", serviceRouter);
+app.use("/file", fileRouter);
 app.listen(PORT, () => {
   console.log("Servidor iniciado en puerto: " + PORT);
 });
